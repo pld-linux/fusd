@@ -3,7 +3,8 @@
 # _without_dist_kernel	- without sources of distribution kernel
 #
 %include        /usr/lib/rpm/macros.python
-Summary:	a Linux Framework for User-Space Devices
+Summary:	Linux Framework for User-Space Devices
+Summary(pl):	Struktura linuksowa dla urz±dzeñ w przestrzeni u¿ytkownika
 Name:		fusd
 Version:	1.10
 %define _rel	1
@@ -25,6 +26,14 @@ callbacks into user-space, allowing device files to be implemented by
 daemons instead of kernel code. Despite being implemented in
 user-space, FUSD devices can look and act just like any other file
 under /dev which is implemented by kernel callbacks.
+
+%description -l pl
+FUSD jest linuksow± struktur± przekierowywania odwo³añ do plików
+urz±dzeñ do przestrzeni u¿ytkownika, co umo¿liwia implementacje tych
+plików urz±dzeñ za pomoc± demonów zamiast poprzez kod j±dra. Pomimo,
+¿e zaimplementowane w przestrzeni u¿ytkownika, urz±dzenia FUSD
+wygl±daj± i dzia³aj± tak jak ka¿dy inny plik w /dev zaimplementowany
+poprzez funkcje j±dra.
 
 %package -n kernel-misc-kfusd
 Summary:	Linux kernel FUSD modules
