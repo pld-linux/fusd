@@ -16,8 +16,9 @@ Source0:	ftp://ftp.circlemud.org/pub/jelson/fusd/%{name}-%{version}.tar.gz
 URL:		http://www.circlemud.org/~jelson/software/fusd/
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers}
 BuildRequires:	%{kgcc_package}
-BuildRequires:	rpmbuild(macros) >= 1.118
 BuildRequires:  python-devel >= 2.2.1
+BuildRequires:	rpmbuild(macros) >= 1.118
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,7 +30,7 @@ under /dev which is implemented by kernel callbacks.
 
 %description -l pl
 FUSD jest linuksow± struktur± przekierowywania odwo³añ do plików
-urz±dzeñ do przestrzeni u¿ytkownika, co umo¿liwia implementacje tych
+urz±dzeñ do przestrzeni u¿ytkownika, co umo¿liwia implementacjê tych
 plików urz±dzeñ za pomoc± demonów zamiast poprzez kod j±dra. Pomimo,
 ¿e zaimplementowane w przestrzeni u¿ytkownika, urz±dzenia FUSD
 wygl±daj± i dzia³aj± tak jak ka¿dy inny plik w /dev zaimplementowany
@@ -67,12 +68,16 @@ Modu³y SMP FUSD dla j±dra Linuksa.
 
 %package -n python-fusd
 Summary:	Python bindings for FUSD
+Summary(pl):	Wi±zania Pythona dla FUSD
 Release:        %{_rel}
 Group:          Libraries/Python
 %pyrequires_eq  python-modules
 
 %description -n python-fusd
 Python bindings for FUSD.
+
+%description -n python-fusd -l pl
+Wi±zania Pythona dla FUSD.
 
 %prep
 %setup -q
@@ -98,8 +103,8 @@ install -d $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}{,smp}/misc
 
 install obj.UP/libfusd.a	$RPM_BUILD_ROOT%{_libdir}
 install include/*.h		$RPM_BUILD_ROOT%{_includedir}/%{name}
-install obj.UP/kfusd.*o		$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/
-install obj.*-linux/kfusd.*o	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc/
+install obj.UP/kfusd.*o		$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc
+install obj.*-linux/kfusd.*o	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc
 
 cd python
 python setup.py install \
