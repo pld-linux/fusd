@@ -11,7 +11,7 @@ Release:	%{_rel}
 License:	BSD
 Group:		Development/Libraries
 Source0:	ftp://ftp.circlemud.org/pub/jelson/fusd/%{name}-%{version}.tar.gz
-# Source0-md5:	b61edee0962a3c2b62d87ad9ea4d46f8
+# Source0-md5:	64b601e4b72eab00927ec8732ef462b5
 URL:		http://www.circlemud.org/~jelson/software/fusd/
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers}
 BuildRequires:	%{kgcc_package}
