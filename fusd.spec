@@ -2,6 +2,7 @@
 # Conditional build:
 # _without_dist_kernel	- without sources of distribution kernel
 #
+%include        /usr/lib/rpm/macros.python
 Summary:	a Linux Framework for User-Space Devices
 Name:		fusd
 Version:	1.10
@@ -15,6 +16,7 @@ URL:		http://www.circlemud.org/~jelson/software/fusd/
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers}
 BuildRequires:	%{kgcc_package}
 BuildRequires:	rpmbuild(macros) >= 1.118
+BuildRequires:  python-devel >= 2.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,6 +56,15 @@ Linux SMP kernel FUSD modules.
 %description -n kernel-smp-misc-kfusd -l pl
 Modu³y SMP FUSD dla j±dra Linuksa.
 
+%package -n python-fusd
+Summary:	Python bindings for FUSD
+Release:        %{_rel}
+Group:          Libraries/Python
+%pyrequires_eq  python-modules
+
+%description -n python-fusd
+Python bindings for FUSD.
+
 %prep
 %setup -q
 tar xzf doc/*.tar.gz
@@ -68,6 +79,9 @@ mv obj.* obj.UP
 sed -i -e 's#CFLAGS := .*#CFLAGS := -fPIC %{rpmcflags} -DCONFIG_SMP#g' make.include
 %{__make}
 
+cd python
+python setup.py build
+
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}/%{name}}
@@ -77,6 +91,11 @@ install obj.UP/libfusd.a	$RPM_BUILD_ROOT%{_libdir}
 install include/*.h		$RPM_BUILD_ROOT%{_includedir}/%{name}
 install obj.UP/kfusd.*o		$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/
 install obj.*-linux/kfusd.*o	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc/
+
+cd python
+python setup.py install \
+        --root=$RPM_BUILD_ROOT \
+        --optimize=2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,3 +125,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -n kernel-smp-misc-kfusd
 %defattr(644,root,root,755)
 /lib/modules/%{_kernel_ver}smp/*/kfusd*
+
+%files -n python-fusd
+%defattr(644,root,root,755)
+%doc python/README
+%attr(755,root,root) %{py_sitedir}/*.so
+%{py_sitedir}/*.py[co]
