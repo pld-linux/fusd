@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _without_dist_kernel	- without sources of distribution kernel
+%bcond_without 	dist_kernel	# without sources of distribution kernel
 #
 %include	/usr/lib/rpm/macros.python
 Summary:	Linux Framework for User-Space Devices
@@ -14,7 +14,7 @@ Group:		Development/Libraries
 Source0:	ftp://ftp.circlemud.org/pub/jelson/fusd/%{name}-%{version}.tar.gz
 # Source0-md5:	64b601e4b72eab00927ec8732ef462b5
 URL:		http://www.circlemud.org/~jelson/software/fusd/
-%{!?_without_dist_kernel:BuildRequires:	kernel-headers}
+%{?with_dist_kernel:BuildRequires:	kernel-headers}
 BuildRequires:	%{kgcc_package}
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	rpmbuild(macros) >= 1.118
@@ -41,7 +41,7 @@ Summary:	Linux kernel FUSD modules
 Summary(pl):	Modu³y FUSD dla j±dra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
-%{!?_without_dist_kernel:%requires_releq_kernel_up}
+%{?with_dist_kernel:%requires_releq_kernel_up}
 PreReq:		modutils >= 2.4.6-4
 Requires(post,postun):	/sbin/depmod
 
@@ -56,7 +56,7 @@ Summary:	Linux SMP kernel FUSD modules
 Summary(pl):	Modu³y SMP FUSD dla j±dra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
-%{!?_without_dist_kernel:%requires_releq_kernel_smp}
+%{?with_dist_kernel:%requires_releq_kernel_smp}
 PreReq:		modutils >= 2.4.6-4
 Requires(post,postun):	/sbin/depmod
 
