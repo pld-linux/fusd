@@ -2,7 +2,7 @@
 # Conditional build:
 # _without_dist_kernel	- without sources of distribution kernel
 #
-%include        /usr/lib/rpm/macros.python
+%include	/usr/lib/rpm/macros.python
 Summary:	Linux Framework for User-Space Devices
 Summary(pl):	Struktura linuksowa dla urz±dzeñ w przestrzeni u¿ytkownika
 Name:		fusd
@@ -16,7 +16,7 @@ Source0:	ftp://ftp.circlemud.org/pub/jelson/fusd/%{name}-%{version}.tar.gz
 URL:		http://www.circlemud.org/~jelson/software/fusd/
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers}
 BuildRequires:	%{kgcc_package}
-BuildRequires:  python-devel >= 2.2.1
+BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	rpmbuild(macros) >= 1.118
 BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -69,9 +69,9 @@ Modu³y SMP FUSD dla j±dra Linuksa.
 %package -n python-fusd
 Summary:	Python bindings for FUSD
 Summary(pl):	Wi±zania Pythona dla FUSD
-Release:        %{_rel}
-Group:          Libraries/Python
-%pyrequires_eq  python-modules
+Release:	%{_rel}
+Group:		Libraries/Python
+%pyrequires_eq	python-modules
 
 %description -n python-fusd
 Python bindings for FUSD.
@@ -108,8 +108,8 @@ install obj.*-linux/kfusd.*o	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc
 
 cd python
 python setup.py install \
-        --root=$RPM_BUILD_ROOT \
-        --optimize=2
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
