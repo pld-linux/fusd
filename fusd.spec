@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without 	dist_kernel	# without sources of distribution kernel
+%bcond_without	dist_kernel	# without sources of distribution kernel
 #
 Summary:	Linux Framework for User-Space Devices
 Summary(pl):	Struktura linuksowa dla urz±dzeñ w przestrzeni u¿ytkownika
