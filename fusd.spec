@@ -3,7 +3,7 @@
 %bcond_without	dist_kernel	# without sources of distribution kernel
 #
 Summary:	Linux Framework for User-Space Devices
-Summary(pl):	Struktura linuksowa dla urz±dzeñ w przestrzeni u¿ytkownika
+Summary(pl.UTF-8):   Struktura linuksowa dla urzÄ…dzeÅ„ w przestrzeni uÅ¼ytkownika
 Name:		fusd
 Version:	1.10
 %define _rel	1
@@ -27,17 +27,17 @@ daemons instead of kernel code. Despite being implemented in
 user-space, FUSD devices can look and act just like any other file
 under /dev which is implemented by kernel callbacks.
 
-%description -l pl
-FUSD jest linuksow± struktur± przekierowywania odwo³añ do plików
-urz±dzeñ do przestrzeni u¿ytkownika, co umo¿liwia implementacjê tych
-plików urz±dzeñ za pomoc± demonów zamiast poprzez kod j±dra. Pomimo,
-¿e zaimplementowane w przestrzeni u¿ytkownika, urz±dzenia FUSD
-wygl±daj± i dzia³aj± tak jak ka¿dy inny plik w /dev zaimplementowany
-poprzez funkcje j±dra.
+%description -l pl.UTF-8
+FUSD jest linuksowÄ… strukturÄ… przekierowywania odwoÅ‚aÅ„ do plikÃ³w
+urzÄ…dzeÅ„ do przestrzeni uÅ¼ytkownika, co umoÅ¼liwia implementacjÄ™ tych
+plikÃ³w urzÄ…dzeÅ„ za pomocÄ… demonÃ³w zamiast poprzez kod jÄ…dra. Pomimo,
+Å¼e zaimplementowane w przestrzeni uÅ¼ytkownika, urzÄ…dzenia FUSD
+wyglÄ…dajÄ… i dziaÅ‚ajÄ… tak jak kaÅ¼dy inny plik w /dev zaimplementowany
+poprzez funkcje jÄ…dra.
 
 %package -n kernel-misc-kfusd
 Summary:	Linux kernel FUSD modules
-Summary(pl):	Modu³y FUSD dla j±dra Linuksa
+Summary(pl.UTF-8):   ModuÅ‚y FUSD dla jÄ…dra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_up}
@@ -47,12 +47,12 @@ Requires(post,postun):	/sbin/depmod
 %description -n kernel-misc-kfusd
 Linux kernel FUSD modules.
 
-%description -n kernel-misc-kfusd -l pl
-Modu³y FUSD dla j±dra Linuksa.
+%description -n kernel-misc-kfusd -l pl.UTF-8
+ModuÅ‚y FUSD dla jÄ…dra Linuksa.
 
 %package -n kernel-smp-misc-kfusd
 Summary:	Linux SMP kernel FUSD modules
-Summary(pl):	Modu³y SMP FUSD dla j±dra Linuksa
+Summary(pl.UTF-8):   ModuÅ‚y SMP FUSD dla jÄ…dra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_smp}
@@ -62,12 +62,12 @@ Requires(post,postun):	/sbin/depmod
 %description -n kernel-smp-misc-kfusd
 Linux SMP kernel FUSD modules.
 
-%description -n kernel-smp-misc-kfusd -l pl
-Modu³y SMP FUSD dla j±dra Linuksa.
+%description -n kernel-smp-misc-kfusd -l pl.UTF-8
+ModuÅ‚y SMP FUSD dla jÄ…dra Linuksa.
 
 %package -n python-fusd
 Summary:	Python bindings for FUSD
-Summary(pl):	Wi±zania Pythona dla FUSD
+Summary(pl.UTF-8):   WiÄ…zania Pythona dla FUSD
 Release:	%{_rel}
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
@@ -75,8 +75,8 @@ Group:		Libraries/Python
 %description -n python-fusd
 Python bindings for FUSD.
 
-%description -n python-fusd -l pl
-Wi±zania Pythona dla FUSD.
+%description -n python-fusd -l pl.UTF-8
+WiÄ…zania Pythona dla FUSD.
 
 %prep
 %setup -q
