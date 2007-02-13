@@ -3,7 +3,7 @@
 %bcond_without	dist_kernel	# without sources of distribution kernel
 #
 Summary:	Linux Framework for User-Space Devices
-Summary(pl.UTF-8):   Struktura linuksowa dla urządzeń w przestrzeni użytkownika
+Summary(pl.UTF-8):	Struktura linuksowa dla urządzeń w przestrzeni użytkownika
 Name:		fusd
 Version:	1.10
 %define _rel	1
@@ -37,7 +37,7 @@ poprzez funkcje jądra.
 
 %package -n kernel-misc-kfusd
 Summary:	Linux kernel FUSD modules
-Summary(pl.UTF-8):   Moduły FUSD dla jądra Linuksa
+Summary(pl.UTF-8):	Moduły FUSD dla jądra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_up}
@@ -52,7 +52,7 @@ Moduły FUSD dla jądra Linuksa.
 
 %package -n kernel-smp-misc-kfusd
 Summary:	Linux SMP kernel FUSD modules
-Summary(pl.UTF-8):   Moduły SMP FUSD dla jądra Linuksa
+Summary(pl.UTF-8):	Moduły SMP FUSD dla jądra Linuksa
 Release:	%{_rel}@%{_kernel_ver_str}
 Group:		Base/Kernel
 %{?with_dist_kernel:%requires_releq_kernel_smp}
@@ -67,7 +67,7 @@ Moduły SMP FUSD dla jądra Linuksa.
 
 %package -n python-fusd
 Summary:	Python bindings for FUSD
-Summary(pl.UTF-8):   Wiązania Pythona dla FUSD
+Summary(pl.UTF-8):	Wiązania Pythona dla FUSD
 Release:	%{_rel}
 Group:		Libraries/Python
 %pyrequires_eq	python-modules
