@@ -93,7 +93,7 @@ sed -i -e 's#CFLAGS := .*#CFLAGS := -fPIC %{rpmcflags} -DCONFIG_SMP#g' make.incl
 %{__make}
 
 cd python
-python setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -106,9 +106,7 @@ install obj.UP/kfusd.*o		$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc
 install obj.*-linux/kfusd.*o	$RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}smp/misc
 
 cd python
-python setup.py install \
-	--root=$RPM_BUILD_ROOT \
-	--optimize=2
+%py_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
